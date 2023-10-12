@@ -1,0 +1,43 @@
+﻿@page
+@model DisasterAlleviationFoundationPOE.Pages.Allocations.AllocationsModel
+@{
+}
+<!-- Display active disasters, available goods, allocated goods, allocated money, and purchases --> 
+
+<form asp-page-handler="ProcessAllocation" method="post">
+   <!-- Dropdowns for selecting disaster -->
+<div>
+    <label for="SelectedDisasterId">Select Disaster:</label>
+   <select asp-for="SelectedDisasterId" asp-items="new SelectList(Model.ActiveDisasters, "Id", "Name")></select>
+</div>
+
+
+    <!-- Dropdowns for selecting allocation type -->
+    <div>
+        <label for="allocationType">Select Allocation Type:</label>
+        <select asp-for="AllocationType">
+            <option value="AllocateGoods">Allocate Goods</option>
+            <option value="AllocateMoney">Allocate Money</option>
+            <option value="CapturePurchase">Capture Purchase</option>
+        </select>
+    </div>
+
+    <!-- Dropdowns for selecting good and quantity (displayed based on AllocationType) -->
+    <div id="goodsFields" style="display: none;">
+        <label for="goodId">Select Good:</label>
+        <select asp-for="GoodId" asp-items="new SelectList(Model.AvailableGoods, "Id", "Name")></select>
+        <label for="quantity">Quantity:</label>
+        <input asp-for="Quantity" />
+    </div>
+
+    <!-- Money amount (displayed based on AllocationType) -->
+    <div id="moneyField" style="display: none;">
+        <label for="amount">Amount:</label>
+        <input asp-for="Amount" />
+    </div>
+
+    <button type="submit" name="action" value="AllocateGoods">Allocate Goods</button>
+    <button type="submit" name="action" value="AllocateMoney">Allocate Money</button>
+    <button type="submit" name="action" value="CapturePurchase">Capture Purchase</button>
+</form>
+

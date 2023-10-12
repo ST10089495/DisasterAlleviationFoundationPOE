@@ -9,5 +9,6 @@ namespace DisasterAlleviationFoundationPOE.Models
         public string Name { get; set; }
         public decimal MoneyAllocated { get; set; }
         public bool IsResolved { get; internal set; }
+        public bool IsActive { get; internal set; }
     }
 }

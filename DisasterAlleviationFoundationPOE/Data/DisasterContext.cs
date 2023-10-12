@@ -15,5 +15,8 @@ namespace DisasterAlleviationFoundationPOE.Data
         public DbSet<Disaster> Disasters { get; set; }
         public DbSet<Inventory> Inventories { get; set; }
         public DbSet<Goods> Goods { get; set; }
+        public DbSet<Goods> AllocateGoods { get; set; }
+        public DbSet<Goods> AllocateMoney { get; set; }
+        public DbSet<Goods> Purchases { get; set; }
     }
 }
