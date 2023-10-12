@@ -1,0 +1,24 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<form asp-controller="Allocation" asp-action="CapturePurchase" method="post">
+    <div>
+        <label for="disasterId">Select Disaster:</label>
+        <select asp-for="DisasterId" asp-items="new SelectList(Model.ActiveDisasters, "Id", "Name")"></select>
+    </div>
+    <div>
+        <label for="goodId">Select Good:</label>
+        <select asp-for="GoodId" asp-items="new SelectList(Model.AvailableGoods, "Id", "Name")"></select>
+    </div>
+    <div>
+        <label for="purchaseQuantity">Quantity to Purchase:</label>
+        <input asp-for="PurchaseQuantity" />
+    </div>
+    <div>
+        <label for="availableMoney">Available Money:</label>
+        <span>@Model.AvailableMoney</span>
+    </div>
+    <button type="submit">Capture Purchase</button>
+</form>
