@@ -1,0 +1,23 @@
+﻿@page
+@model DisasterAlleviationFoundationPOE.Pages.NewDonationsModel
+@{
+    ViewData["Title"] = "New Monetary Donations";
+}
+<h3>New Monetary Donations</h3>
+<div class="container">
+    <form method="POST">
+
+        <label for="Dname">Donor name</label><br>
+        <input type="text" id="Dname" name="donorname"><br>
+
+        <label for="Ddate">Date</label><br>
+        <input type="text" id="Ddate" name="donationdate"><br>
+
+        <label for="Damount">Amount</label><br>
+        <input type="text" id="Damount" name="donationamount"><br>
+
+        <input type="submit" value="Submit">
+
+    </form>
+
+</div>
