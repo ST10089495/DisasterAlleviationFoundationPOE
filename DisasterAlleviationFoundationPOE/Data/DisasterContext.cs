@@ -12,5 +12,8 @@ namespace DisasterAlleviationFoundationPOE.Data
         public DbSet<NewDonations> NewDonations { get; set; }
         public DbSet<Login> Login { get; set; }
         public DbSet<Registration> Registration { get; set; }
+        public DbSet<Disaster> Disasters { get; set; }
+        public DbSet<Inventory> Inventories { get; set; }
+        public DbSet<Goods> Goods { get; set; }
     }
 }
