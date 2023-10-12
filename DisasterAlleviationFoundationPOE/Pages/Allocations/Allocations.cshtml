@@ -1,21 +1,25 @@
 ﻿@page
 @model DisasterAlleviationFoundationPOE.Pages.Allocations.AllocationsModel
+@using Microsoft.AspNetCore.Mvc.Rendering
 @{
 }
 <!-- Display active disasters, available goods, allocated goods, allocated money, and purchases --> 
 
-<form asp-page-handler="ProcessAllocation" method="post">
-   <!-- Dropdowns for selecting disaster -->
-<div>
-    <label for="SelectedDisasterId">Select Disaster:</label>
-   <select asp-for="SelectedDisasterId" asp-items="new SelectList(Model.ActiveDisasters, "Id", "Name")></select>
-</div>
-
+<form action="YourActionURL" method="post">
+    <!-- Dropdowns for selecting disaster -->
+    <div>
+        <label for="SelectedDisasterId">Select Disaster:</label>
+        <select name="SelectedDisasterId">
+            <option value="1">Disaster 1</option>
+            <option value="2">Disaster 2</option>
+            <!-- Add more options as needed -->
+        </select>
+    </div>
 
     <!-- Dropdowns for selecting allocation type -->
     <div>
-        <label for="allocationType">Select Allocation Type:</label>
-        <select asp-for="AllocationType">
+        <label for="AllocationType">Select Allocation Type:</label>
+        <select name="AllocationType">
             <option value="AllocateGoods">Allocate Goods</option>
             <option value="AllocateMoney">Allocate Money</option>
             <option value="CapturePurchase">Capture Purchase</option>
@@ -23,21 +27,62 @@
     </div>
 
     <!-- Dropdowns for selecting good and quantity (displayed based on AllocationType) -->
-    <div id="goodsFields" style="display: none;">
-        <label for="goodId">Select Good:</label>
-        <select asp-for="GoodId" asp-items="new SelectList(Model.AvailableGoods, "Id", "Name")></select>
-        <label for="quantity">Quantity:</label>
-        <input asp-for="Quantity" />
+    <div>
+        <label for="GoodId">Select Good:</label>
+        <select name="GoodId">
+            <option value="1">Good 1</option>
+            <option value="2">Good 2</option>
+            <!-- Add more options as needed -->
+        </select>
+        <label for="Quantity">Quantity:</label>
+        <input type="text" name="Quantity" />
     </div>
 
     <!-- Money amount (displayed based on AllocationType) -->
-    <div id="moneyField" style="display: none;">
-        <label for="amount">Amount:</label>
-        <input asp-for="Amount" />
+    <div>
+        <label for="Amount">Amount:</label>
+        <input type="text" name="Amount" />
     </div>
 
     <button type="submit" name="action" value="AllocateGoods">Allocate Goods</button>
     <button type="submit" name="action" value="AllocateMoney">Allocate Money</button>
     <button type="submit" name="action" value="CapturePurchase">Capture Purchase</button>
 </form>
+
+
+
+<br>
+<h1>Allocations</h1>
+<br>
+<h2>Allocations recorded</h2>
+<table class="table"
+       <thead>
+           <tr>
+               
+               <th>DESCRIPTION</th>
+               <th>AMOUNT</th>
+               <th>Number of items</th>
+               <th>Allocated money</th>
+               <th>Allocated goods</th>
+            
+           </tr>
+
+</thead>
+<tbody>
+@foreach(var item in Model.listallocation)
+            {
+    <tr>
+        <td>@item.DESCRIPTION</td>
+        <td>@item.AMOUNT</td>
+        <td>@item.NUMBEROFITEMS</td>
+        <td>@item.ALLOCATEMONEY </td>
+        <td>@item.ALLOCATEGOODS</td>
+      
+        
+
+
+    </tr>
+            }
+</tbody>
+</table>
 
