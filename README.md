@@ -14,7 +14,7 @@ This s a disaster alleviation project for a non- profit organisation built to pr
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-username/your-repo.git
+    git clone https://github.com/ST10089495/DisasterAlleviationFoundationPOE.git
     ```
 
 2. Open the project in Visual Studio.
